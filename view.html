@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Live Screen</title>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+
+</head>
+
+<body style="background:black;color:white">
+
+<h2>Live Screen Viewer</h2>
+
+<video id="screen" autoplay playsinline></video>
+
+<script>
+
+const firebaseConfig = {
+apiKey: "AIzaSyAavkx6aU0hiAzdcP70wjdG-YEXYmm1mdc",
+authDomain: "game24-app.firebaseapp.com",
+databaseURL: "https://game24-app-default-rtdb.firebaseio.com",
+projectId: "game24-app",
+storageBucket: "game24-app.firebasestorage.app",
+messagingSenderId: "551706234613",
+appId: "1:551706234613:web:4fd71e34e07b8b7a4dbfbc",
+measurementId: "G-LJ0RZLS9MB"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.database();
+
+db.ref("screen").on("value", snap=>{
+console.log(snap.val());
+});
+
+</script>
+
+</body>
+</html>
